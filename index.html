@@ -1,1 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christmas Surprise for Anshika</title>
 
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+#name {
+    font-size: 2.2em;
+    color: #ffdd59;
+    min-height: 1.5em;
+}
+
+p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Photo */
+.photo-frame {
+    margin: 30px auto;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 5px solid #ff6b81;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(255, 107, 129, 0.8);
+    animation: fadeIn 2s ease;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Gift */
+.gift {
+    font-size: 80px;
+    margin: 25px;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+}
+
+button {
+    background: #ff4757;
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    font-size: 1.1em;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff6b81;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Snow */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    font-size: 20px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh); }
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+    <h1>🎄 Merry Christmas 🎄</h1>
+    <div id="name"></div>
+
+    <!-- PHOTO ADDED HERE -->
+    <div class="photo-frame">
+        <img src="photo.jpg" alt="Special Memory">
+    </div>
+
+    <p>
+        Every moment feels magical with you, Anshika ❤️  
+        You are my favorite part of Christmas ✨
+    </p>
+
+    <div class="gift" onclick="openGift()">🎁</div>
+    <button onclick="surprise()">Click for Surprise</button>
+</div>
+
+<script>
+// Typing effect
+const text = "Specially For Anshika ❤️";
+let i = 0;
+function typeName() {
+    if (i < text.length) {
+        document.getElementById("name").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeName, 100);
+    }
+}
+typeName();
+
+// Snow
+function snow() {
+    const snowflake = document.createElement("div");
+    snowflake.className = "snowflake";
+    snowflake.innerHTML = "❄";
+    snowflake.style.left = Math.random() * 100 + "vw";
+    snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
+    document.body.appendChild(snowflake);
+    setTimeout(() => snowflake.remove(), 5000);
+}
+setInterval(snow, 200);
+
+// Alerts
+function surprise() {
+    alert("🎄 Anshika ❤️ You are my miracle this Christmas 🎅");
+}
+function openGift() {
+    alert("🎁 Surprise! My heart is yours forever 💖");
+}
+</script>
+
+</body>
+</html>
